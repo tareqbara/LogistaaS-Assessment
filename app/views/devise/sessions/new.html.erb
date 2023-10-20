@@ -1,0 +1,43 @@
+
+ <section class="vh-100" style="background-color: #eee;">
+        <div class="container-fluid h-custom">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-md-9 col-lg-6 col-xl-5">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                        class="img-fluid" alt="Sample image">
+                </div>
+                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                        <div class=" mb-4">
+                            <%= f.label :name,class:"form-label" %><br />
+                            <%= f.text_field :name, autofocus: true, autocomplete: "name",class:"form-control form-control-lg" %>
+                        </div>
+                        <div class=" mb-4">
+                            <%= f.label :email,class:"form-label" %><br />
+                            <%= f.email_field :email, autocomplete: "email",class:"form-control form-control-lg" %>
+                        </div>
+                        <div class=" mb-3">
+
+                            <%= f.label :password,class:"form-label" %><br />
+                            <%= f.password_field :password, autocomplete: "current-password",class:"form-control form-control-lg"%>
+
+                        </div>
+                        <% if devise_mapping.rememberable? %>
+                            <div class="form-check mb-0">
+                                <%= f.check_box :remember_me ,class:"form-check-input me-2"%>
+                                <%= f.label :remember_me ,class:"form-check-label"%>
+                            </div>      
+                        <% end %>
+                        <div class="text-center text-lg-start mt-4 pt-2">
+                                <%= f.submit "Log in" ,class:"btn btn-primary btn-lg" %>
+                                <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? 
+                                  <%= render "devise/shared/links" %>
+                                
+                                </p>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </section>
+
